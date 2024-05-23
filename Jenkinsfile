@@ -1,17 +1,19 @@
 pipeline {
     agent any
 
+    triggers {
+        pollSCM '* * * * *'
+    }
     stages {
-        stage('Docker Build') {
+        stage('Build') {
             steps {
-                sh 'docker compose build'
+                sh './gradlew assemble'
             }
         }
-    }
-
-    post {
-        always {
-            cleanWs() // Clean workspace after pipeline execution
+        stage('Test') {
+            steps {
+                sh './gradlew test'
+            }
         }
     }
 }
