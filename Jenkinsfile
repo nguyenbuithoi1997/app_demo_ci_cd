@@ -7,6 +7,11 @@ pipeline {
     stages {
         stage('Quyen') {
             steps {
+                sh 'gradle wrapper'
+            }
+        }
+        stage('Quyen') {
+            steps {
                 sh 'chmod +x gradlew'
             }
         }
