@@ -5,7 +5,7 @@ pipeline {
         pollSCM '* * * * *'
     }
     stages {
-        stage('Quyen') {
+        stage('Quen1') {
             steps {
                 sh 'gradle wrapper'
             }
